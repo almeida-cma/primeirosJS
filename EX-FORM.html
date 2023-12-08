@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificação de Prioridade para Vacinação</title>
+    <style>
+        /* Estilos omitidos para brevidade */
+    </style>
+</head>
+<body>
+
+<!-- Título da página -->
+<h1>Verificação de Prioridade para Vacinação</h1>
+
+<!-- Formulário de entrada de dados -->
+<form id="formulario">
+    <!-- Campo para inserir a idade -->
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" required>
+
+    <!-- Checkbox para indicar se é profissional de saúde -->
+    <label>
+        <input type="checkbox" id="profissionalDeSaude" name="profissionalDeSaude">
+        Profissional de Saúde
+    </label>
+
+    <!-- Checkbox para indicar condição médica predisponente -->
+    <label>
+        <input type="checkbox" id="condicaoMedica" name="condicaoMedica">
+        Condição Médica Predisponente
+    </label>
+
+    <!-- Botão para acionar a verificação de prioridade -->
+    <button type="button" onclick="verificarPrioridade()">Verificar Prioridade</button>
+</form>
+
+<!-- Div para exibir a mensagem de resultado -->
+<div id="mensagem"></div>
+
+<script>
+    // Função para verificar a prioridade com base nos dados do formulário
+    function verificarPrioridade() {
+        // Obtém a idade, se é profissional de saúde e se há condição médica
+        var idade = parseInt(document.getElementById('idade').value, 10);
+        var profissionalDeSaude = document.getElementById('profissionalDeSaude').checked;
+        var condicaoMedica = document.getElementById('condicaoMedica').checked;
+
+        // Verifica se a idade é válida
+        var idadeValida = !isNaN(idade) && idade > 0;
+
+        // Verifica se a pessoa tem 60 anos ou mais
+        var idade60ouMais = idade >= 60;
+
+        // Verifica se a pessoa é profissional de saúde
+        var eProfissionalDeSaude = profissionalDeSaude;
+
+        // Verifica se a pessoa possui condição médica
+        var possuiCondicaoMedica = condicaoMedica;
+
+        // Verifica se a pessoa é prioritária com base nas condições acima
+        var ePrioritario;
+
+        if (idadeValida) {
+            if (idade60ouMais || eProfissionalDeSaude || possuiCondicaoMedica) {
+                ePrioritario = true;
+            } else {
+                ePrioritario = false;
+            }
+        } else {
+            ePrioritario = false;
+        }
+
+        // Exibe a mensagem com base no resultado da verificação
+        if (ePrioritario) {
+            exibirMensagem('A pessoa é considerada prioritária para vacinação.', true);
+        } else {
+            exibirMensagem('A pessoa não é considerada prioritária para vacinação.', false);
+        }
+    }
+
+    // Função para exibir a mensagem na página
+    function exibirMensagem(mensagem, sucesso) {
+        // Obtém o elemento da página onde a mensagem será exibida
+        var mensagemElement = document.getElementById('mensagem');
+
+        // Define o texto da mensagem
+        mensagemElement.innerHTML = mensagem;
+
+        // Adiciona a classe de estilo com base no sucesso da verificação
+        mensagemElement.className = sucesso ? 'mensagem-sucesso' : 'mensagem-erro';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Formulário</title>
+    <style>
+        /* Estilo para destacar campos inválidos */
+        input.invalid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Formulário com campos de nome de usuário e senha -->
+    <form id="myForm">
+        <label for="username">Nome de Usuário:</label>
+        <!-- Campo de entrada para o nome de usuário -->
+        <input type="text" id="username" name="username">
+
+        <br>
+
+        <label for="password">Senha:</label>
+        <!-- Campo de entrada para a senha -->
+        <input type="password" id="password" name="password">
+
+        <br>
+
+        <!-- Botão que chama a função de validação -->
+        <button type="button" onclick="validateForm()">Validar</button>
+    </form>
+
+    <script>
+        // JavaScript para validação de formulário
+        // Função que é chamada ao clicar no botão
+        function validateForm() {
+            // Obtém os valores dos campos de entrada
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Verifica se os campos estão vazios e exibe um alerta se necessário
+            if (username === '' || password === '') {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            // Se os campos estiverem preenchidos, exibe um alerta indicando que o formulário é válido
+            alert('Formulário válido!');
+        }
+    </script>
+
+</body>
+</html>

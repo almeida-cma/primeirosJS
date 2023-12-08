@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada de Dados</title>
+</head>
+<body>
+
+    <!-- Título da Página -->
+    <h2>Digite seu nome e idade:</h2>
+
+    <!-- Campos de Entrada para Nome e Idade -->
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome">
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade">
+
+    <!-- Botão para Gerar Mensagem -->
+    <button onclick="gerarMensagem()">Gerar Mensagem</button>
+
+    <!-- Área para Exibir a Mensagem Gerada -->
+    <div id="mensagem"></div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Função para Gerar a Mensagem com Base nos Campos de Entrada
+        function gerarMensagem() {
+            // Obtem os valores inseridos nos campos de nome e idade
+            var nome = document.getElementById('nome').value;
+            var idade = document.getElementById('idade').value;
+
+            // Cria uma mensagem com os valores obtidos
+            var mensagem = 'Seu nome é "' + nome + '" e você tem ' + idade + ' anos de idade!';
+            
+            // Exibe a mensagem na área designada no HTML
+            document.getElementById('mensagem').innerHTML = mensagem;
+        }
+    </script>
+
+</body>
+</html>

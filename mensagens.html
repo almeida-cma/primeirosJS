@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo JavaScript</title>
+</head>
+<body>
+
+<!-- Botão -->
+<button onclick="exibirMensagemComInnerHTML()">Com DIV</button>
+<button onclick="exibirMensagemComAlert()">Com Alert</button>
+<button onclick="exibirMensagem()">Duas formas</button>
+<button onclick="apagarMensagem()">limpar</button>
+
+<!-- Container para exibir a mensagem -->
+<div id="mensagem"></div>
+
+<!-- Script JavaScript -->
+<script>
+    // Função para exibir a mensagem usando alert
+    function exibirMensagemComAlert() {
+        alert("Esta é uma mensagem usando alert!");
+    }
+
+    // Função para exibir a mensagem usando innerHTML
+    function exibirMensagemComInnerHTML() {
+        // Selecione o elemento container
+        var container = document.getElementById("mensagem");
+
+        // Defina o conteúdo usando innerHTML
+        container.innerHTML = "Esta é uma mensagem usando innerHTML!";
+    }
+
+    function apagarMensagem() {
+        // Selecione o elemento container
+        var container = document.getElementById("mensagem");
+
+        // Defina o conteúdo usando innerHTML
+        container.innerHTML = "";
+    }
+
+
+
+    // Função principal chamada pelo botão
+    function exibirMensagem() {
+        // Escolha uma das duas opções abaixo:
+
+        // Opção 1: Usando alert
+         exibirMensagemComAlert();
+
+        // Opção 2: Usando innerHTML
+        exibirMensagemComInnerHTML();
+    }
+</script>
+
+</body>
+</html>

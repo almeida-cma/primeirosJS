@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Dinâmica</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        input {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Tarefas</h2>
+
+    <!-- Campo de entrada para adicionar itens à lista -->
+    <input type="text" id="newTask" placeholder="Digite uma nova tarefa">
+    <button onclick="addTask()">Adicionar</button>
+
+    <!-- Lista dinâmica de tarefas -->
+    <ul id="taskList">
+        <!-- Os itens serão adicionados dinamicamente aqui -->
+    </ul>
+
+    <script>
+        // JavaScript para lista dinâmica
+        function addTask() {
+            // Obtém o valor do campo de entrada
+            var newTaskValue = document.getElementById('newTask').value;
+
+            // Verifica se o campo não está vazio
+            if (newTaskValue !== '') {
+                // Cria um novo elemento de lista
+                var listItem = document.createElement('li');
+                // Define o texto do elemento com base no valor do campo de entrada
+                listItem.textContent = newTaskValue;
+
+                // Adiciona o novo elemento à lista
+                document.getElementById('taskList').appendChild(listItem);
+
+                // Limpa o campo de entrada
+                document.getElementById('newTask').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

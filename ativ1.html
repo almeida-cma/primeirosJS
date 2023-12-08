@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Elementos</title>
+    <style>
+        #changeText {
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elemento HTML que será manipulado -->
+    <h2 id="changeText">Clique para mudar o texto!</h2>
+
+    <script>
+        // JavaScript para manipulação de elementos
+        // Seleciona o elemento pelo ID
+        document.getElementById('changeText').onclick = function() {
+            // Altera o conteúdo do elemento
+            this.innerHTML = 'Texto Alterado!';
+            // Altera a cor do texto para vermelho
+            this.style.color = 'red';
+        };
+    </script>
+
+</body>
+</html>
+
